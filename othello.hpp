@@ -2,17 +2,25 @@
 #include <locale.h>
 #include "param.h"
 
-enum icon{NONE,BLACK,WHITE};
+#define height 9
+#define width 9
+
+//Cellの状態の列挙。ほとんどの場合これに準ずる
+typedef enum {NONE,WHITE,BLACK} STATE;
 extern char Icon[][4];
 
+
 class Cell{
-    char* state;
+    STATE state;
+
     public:
-    Cell();
-    char* get_state();
+        Cell();
+        STATE get_state();
+        void set_state(STATE);
+        void put_stone(int,int);
 };  
 class Board{
     public:
-    Board();
-    Cell board[height][width];
+        Board();
+        Cell board[height][width];
 };

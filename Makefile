@@ -1,4 +1,4 @@
-run: main.cpp board.cpp
+main: main.cpp board.cpp
 	g++ main.cpp board.cpp -lncursesw
 
 test: test.cpp board.cpp

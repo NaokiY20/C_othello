@@ -1,2 +1,1 @@
-#define height 9
-#define width 9
+//今のところ使わない
