@@ -1,11 +1,10 @@
 #include <ncurses.h>
 #include <locale.h>
-
-#define height 9
-#define width 9
+#include "param.h"
 
 enum icon{NONE,BLACK,WHITE};
 extern char Icon[][4];
+
 class Cell{
     char* state;
     public:
