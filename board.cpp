@@ -1,6 +1,6 @@
 #include "othello.hpp"
 
-char Icon[][4]={"-","●","●"};
+char Icon[][4]={" ","●","●"};
 
 Cell::Cell(){
     state=NONE;
@@ -15,8 +15,15 @@ void Cell::set_state(STATE s){
 }
 
 void Cell::put_stone(int x,int y){
-    printf("(x,y)=(%d%d)\n",x,y);
-    attrset(COLOR_PAIR(state));
+    printf("%d\n",state);
+    switch(state){
+        case BLACK:
+            attrset(COLOR_PAIR(1));
+            break;
+        default:
+            attrset(COLOR_PAIR(2));
+            break;
+    }
     mvprintw(x,y,Icon[state]);
 }
 
