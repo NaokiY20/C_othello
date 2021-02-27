@@ -11,14 +11,20 @@ int main(){
 
     Board b;
     
-    for(int i=0;i<10;i++){
-        if(i&1)
-            b.board[i][0].set_state(BLACK);
-        else
-            b.board[i][0].set_state(WHITE);
-        b.board[i][0].put_stone(i,0);
+    b.board[3][3].set_state(BLACK);
+    b.board[3][4].set_state(WHITE);
+    b.board[4][3].set_state(WHITE);
+    b.board[4][4].set_state(BLACK);
+    for(int i=0;i<9;i++){
+        int j2=0;
+        for(int j=0;j<9;j++){
+            attrset(COLOR_PAIR(1));
+            mvprintw(i,j2++,"|");
+            b.board[i][j].print_stone(i,j2++);
+        }
+        attrset(COLOR_PAIR(1));
+        mvprintw(i,j2++,"|");
     }
-    
     getch();
     endwin();
 }

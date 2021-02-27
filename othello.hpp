@@ -1,9 +1,9 @@
 #include <ncurses.h>
 #include <locale.h>
-#include "param.h"
+#include "param.hpp"
 
-#define height 9
-#define width 9
+#define height 8
+#define width 8
 
 //Cellの状態の列挙。ほとんどの場合これに準ずる
 typedef enum {NONE,WHITE,BLACK} STATE;
@@ -17,10 +17,13 @@ class Cell{
         Cell();
         STATE get_state();
         void set_state(STATE);
-        void put_stone(int,int);
+        void print_stone(int,int);
 };  
 class Board{
+    Cell board[height][width];
+
     public:
         Board();
-        Cell board[height][width];
+        void print_board(int,int);
+
 };
