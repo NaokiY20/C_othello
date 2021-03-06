@@ -1,5 +1,5 @@
-main: main.cpp board.cpp
-	g++ main.cpp board.cpp -lncursesw
+main: main.cpp board.cpp color.cpp
+	g++ main.cpp board.cpp color.cpp -lncursesw
 
-test: test.cpp board.cpp
-	g++ test.cpp board.cpp -lncursesw
+test: test.cpp board.cpp color.cpp
+	g++ test.cpp board.cpp color.cpp -lncursesw

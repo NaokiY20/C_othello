@@ -4,6 +4,7 @@ char Icon[][4]={"　","●","●"};
 
 Cell::Cell(){
     state=NONE;
+    cell_state=NORMAL;
 }
 
 STATE Cell::get_state(){
@@ -14,13 +15,27 @@ void Cell::set_state(STATE s){
     state=s;
 }
 
+CELL_STATE Cell::get_Cstate(){
+    return cell_state;
+}
+
+void Cell::set_Cstate(CELL_STATE c){
+    cell_state=c;
+}
+
 void Cell::print_stone(int x,int y){
-    switch(state){
-        case BLACK:
-            attrset(COLOR_PAIR(1));
+    switch(cell_state){
+        case SELECT:
+            if(state==BLACK) attrset(COLOR_PAIR(B_B));
+            else attrset(COLOR_PAIR(W_B));
+            break;
+        case ABLE:
+            if(state==BLACK) attrset(COLOR_PAIR(B_Y));
+            else attrset(COLOR_PAIR(W_Y));
             break;
         default:
-            attrset(COLOR_PAIR(2));
+            if(state==BLACK) attrset(COLOR_PAIR(B_G));
+            else attrset(COLOR_PAIR(W_G));
             break;
     }
     mvprintw(x,y,Icon[state]);
