@@ -20,11 +20,11 @@ class Cell{
         void print_stone(int,int);
 };  
 class Board{
-    // Cell board[height][width];
+    Cell board[height][width];
 
     public:
-    Cell board[height][width];
+    // Cell board[height][width];
         Board();
         void print_board(int,int);
-
+        void put_stone(int,int,STATE);
 };

@@ -11,21 +11,7 @@ int main(){
 
     Board b;
     
-    b.board[3][3].set_state(BLACK);
-    b.board[3][4].set_state(WHITE);
-    b.board[4][3].set_state(WHITE);
-    b.board[4][4].set_state(BLACK);
-
-    for(int i=0;i<height;i++){
-        int j2=0;
-        for(int j=0;j<width;j++){
-            attrset(COLOR_PAIR(1));
-            mvprintw(i,j2++,"|");
-            b.board[i][j].print_stone(i,j2++);
-        }
-        attrset(COLOR_PAIR(1));
-        mvprintw(i,j2++,"|");
-    }
+    b.print_board(5,5);
     getch();
     endwin();
 }
