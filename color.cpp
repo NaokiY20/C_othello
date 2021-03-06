@@ -3,6 +3,7 @@
 void set_color(){
     start_color();
 
+    // C_COLORに準ずる
     init_pair(B_G,COLOR_BLACK,COLOR_GREEN);
     init_pair(W_G,COLOR_WHITE,COLOR_GREEN);
     init_pair(B_Y,COLOR_BLACK,COLOR_YELLOW);
