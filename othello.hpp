@@ -41,10 +41,10 @@ class Cursol{
 
     public:
         Cursol();
-        void xpp();
-        void ypp();
-        void xmm();
-        void ymm();
+        void xpp(); //xインクリメント
+        void ypp(); //yインクリメント
+        void xmm(); //xデクリメント
+        void ymm(); //yデクリメント
 };
 
 class Othello{
