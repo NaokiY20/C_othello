@@ -41,15 +41,15 @@ void Cell::print_stone(int x,int y){
     mvprintw(x,y,Icon[state]);
 }
 
-Board::Board(){
-    put_stone(3,3,WHITE);
-    put_stone(3,4,BLACK);
-    put_stone(4,3,BLACK);
-    put_stone(4,4,WHITE);
 
+Board::Board(){
+    set_stone(3,3,WHITE);
+    set_stone(3,4,BLACK);
+    set_stone(4,3,BLACK);
+    set_stone(4,4,WHITE);
 }
 
-void Board::put_stone(int x,int y,STATE s){
+void Board::set_stone(int x,int y,STATE s){
     board[x][y].set_state(s);
 }
 
@@ -64,4 +64,47 @@ void Board::print_board(int x,int y){
         attrset(COLOR_PAIR(1));
         mvprintw(i+x,j2++,"|");
     }
+}
+
+int Board::search_able(STATE s){
+    
+}
+
+bool Board::put_stone(int x,int y,STATE s){
+    if(board[x][y].get_Cstate()!=ABLE) return false;
+    else{
+        set_stone(x,y,s);
+        return true;
+    }
+}
+
+Cursol::Cursol(){
+    x=0;
+    y=0;
+}
+
+void Cursol::xpp(){
+    x=++x%height;
+}
+
+void Cursol::ypp(){
+    y=++y%width;
+}
+
+void Cursol::xmm(){
+    x=--x%height;
+}
+
+void Cursol::ymm(){
+    y=--y%width;
+}
+
+Othello::Othello(){
+    turn=BLACK;
+    board.search_able(turn);
+}
+
+void Othello::game_loop(){
+    board.search_able(turn);
+    board.print_board(5,10);
 }

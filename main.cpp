@@ -9,8 +9,8 @@ void start_up(){
 int main(){
     start_up();
     
-    Board b;
-    b.print_board(5,5);
+    Othello othello;
+    othello.game_loop();
     getch();
     endwin();
 }
