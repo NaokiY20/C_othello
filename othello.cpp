@@ -66,8 +66,16 @@ void Board::print_board(int x,int y){
     }
 }
 
-int Board::search_able(STATE s){
-    
+int Board::search_local(int i,int j){
+    if(board)
+}
+
+int Board::search_able(STATE turn){
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            
+        }
+    }
 }
 
 bool Board::put_stone(int x,int y,STATE s){

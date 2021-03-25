@@ -28,6 +28,8 @@ class Cell{
 class Board{
     Cell board[height][width];
 
+    int search_local(int,int);
+
     public:
         Board();
         void print_board(int,int); //左上の座標を指定して盤面を表示
