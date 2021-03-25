@@ -66,9 +66,6 @@ void Board::print_board(int x,int y){
     }
 }
 
-int Board::search_local(int i,int j){
-    if(board)
-}
 
 int Board::search_able(STATE turn){
     for(int i=0;i<height;i++){

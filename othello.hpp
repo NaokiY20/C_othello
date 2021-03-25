@@ -28,7 +28,7 @@ class Cell{
 class Board{
     Cell board[height][width];
 
-    int search_local(int,int);
+    // int search_local(int,int);
 
     public:
         Board();
