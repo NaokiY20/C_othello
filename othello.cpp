@@ -1,4 +1,6 @@
 #include "othello.hpp"
+#include <vector>
+#include <utility>
 
 char Icon[][4]={"　","●","●"};
 
@@ -63,6 +65,24 @@ void Board::print_board(int x,int y){
         }
         attrset(COLOR_PAIR(1));
         mvprintw(i+x,j2++,"|");
+    }
+}
+
+std::vector<std::pair<int,int>> vec={
+    std::make_pair(1,0),
+    std::make_pair(-1,0),
+    std::make_pair(0,1),
+    std::make_pair(0,-1)
+    };
+
+int Board::search_local(int i, int j, STATE turn,std::pair<int,int> vec){
+    if(i<0 || j<0 || i>=height || j>= width) return -1;
+    if(board[i][j].get_state()==NONE) return -1;
+    if(board[i][j].get_state()==turn) return 0;
+    else{
+        int next = search_local(i+vec.first,j+vec.second,turn,vec);
+        if(next==-1) return -1;
+        else return next+1;
     }
 }
 
