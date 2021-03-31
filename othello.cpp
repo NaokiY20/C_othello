@@ -69,11 +69,15 @@ void Board::print_board(int x,int y){
 }
 
 std::vector<std::pair<int,int>> vec={
+    std::make_pair(1,-1),
     std::make_pair(1,0),
-    std::make_pair(-1,0),
+    std::make_pair(1,1),
+    std::make_pair(0,-1),
     std::make_pair(0,1),
-    std::make_pair(0,-1)
-    };
+    std::make_pair(-1,-1),
+    std::make_pair(-1,0),
+    std::make_pair(-1,1)
+};
 
 int Board::search_local(int i, int j, STATE turn,std::pair<int,int> vec){
     if(i<0 || j<0 || i>=height || j>= width) return -1;
@@ -90,7 +94,12 @@ int Board::search_local(int i, int j, STATE turn,std::pair<int,int> vec){
 int Board::search_able(STATE turn){
     for(int i=0;i<height;i++){
         for(int j=0;j<width;j++){
-            
+            for(auto k: vec){
+                if(search_local(i+k.first,k.second,turn,k)!=-1){
+                    board[i][j].set_Cstate(ABLE);
+                    break;
+                }
+            }
         }
     }
 }
