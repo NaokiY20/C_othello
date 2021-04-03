@@ -10,7 +10,7 @@
 //Cellの状態の列挙。ほとんどの場合これに準ずる
 typedef enum {NONE,WHITE,BLACK} STATE; //Cellに何が置かれているのか
 typedef enum {NORMAL,SELECT,ABLE} CELL_STATE; //Cellの状態
-extern char Icon[][4];
+extern char Icon[];
 
 
 class Cell{

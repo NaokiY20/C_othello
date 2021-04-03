@@ -2,7 +2,7 @@
 #include <vector>
 #include <utility>
 
-char Icon[][4]={"　","●","●"};
+char Icon[]="●";
 
 Cell::Cell(){
     state=NONE;
@@ -28,19 +28,43 @@ void Cell::set_Cstate(CELL_STATE c){
 void Cell::print_stone(int x,int y){
     switch(cell_state){
         case SELECT:
-            if(state==BLACK) attrset(COLOR_PAIR(B_B));
-            else attrset(COLOR_PAIR(W_B));
-            break;
+            switch(state){
+                case BLACK:
+                    attrset(COLOR_PAIR(B_B));
+                    break;
+                case WHITE:
+                    attrset(COLOR_PAIR(W_B));
+                    break;
+                default:
+                    attrset(COLOR_PAIR(BB));
+                    break;
+            }
         case ABLE:
-            if(state==BLACK) attrset(COLOR_PAIR(B_Y));
-            else attrset(COLOR_PAIR(W_Y));
-            break;
+            switch(state){
+                case BLACK:
+                    attrset(COLOR_PAIR(B_Y));
+                    break;
+                case WHITE:
+                    attrset(COLOR_PAIR(W_Y));
+                    break;
+                default:
+                    attrset(COLOR_PAIR(YY));
+                    break;
+            }
         default:
-            if(state==BLACK) attrset(COLOR_PAIR(B_G));
-            else attrset(COLOR_PAIR(W_G));
-            break;
+            switch(state){
+                case BLACK:
+                    attrset(COLOR_PAIR(B_G));
+                    break;
+                case WHITE:
+                    attrset(COLOR_PAIR(W_G));
+                    break;
+                default:
+                    attrset(COLOR_PAIR(GG));
+                    break;
+            }
     }
-    mvprintw(x,y,Icon[state]);
+    mvprintw(x,y,Icon);
 }
 
 
